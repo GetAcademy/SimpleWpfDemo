@@ -1,15 +1,14 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using System.Windows;
 
 namespace SimpleWpfDemo
 {
-    internal class Clicker
+    internal class ClickerPanel : StackPanel
     {
         private Label _label;
         private int _count = 0;
-        public StackPanel Panel { get; }
 
-        public Clicker()
+        public ClickerPanel()
         {
             var button = new Button
             {
@@ -18,12 +17,9 @@ namespace SimpleWpfDemo
             };
             button.Click += ButtonClick;
             _label = new Label { Content = "0" };
-            Panel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal
-            };
-            Panel.Children.Add(button);
-            Panel.Children.Add(_label);
+            Orientation = Orientation.Horizontal;
+            Children.Add(button);
+            Children.Add(_label);
         }
 
         private void ButtonClick(object sender, RoutedEventArgs e)
