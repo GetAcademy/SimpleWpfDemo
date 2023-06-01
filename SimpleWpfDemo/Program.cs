@@ -6,27 +6,25 @@ namespace SimpleWpfDemo
 {
     internal class Program
     {
-        private static Label label;
-
         [STAThread]
         public static void Main(string[] args)
         {
+            // Pause til 13:33
+
             var app = new Application();
             var window = new Window();
-            var button = new Button {Content = "Trykk her!"};
-            button.Click += ButtonClick;
-            label = new Label {Content = "0"};
+
+            var clicker1 = new Clicker();
+            var clicker2 = new Clicker();
+            var clicker3 = new Clicker();
+
             var panel = new StackPanel();
-            panel.Children.Add(button);
-            panel.Children.Add(label);
+            panel.Children.Add(clicker1.Panel);
+            panel.Children.Add(clicker2.Panel);
+            panel.Children.Add(clicker3.Panel);
+
             window.Content = panel;
             app.Run(window);
-        }
-
-        private static void ButtonClick(object sender, RoutedEventArgs e)
-        {
-            //count++;
-            label.Content = "Du har trykket";
         }
     }
 }
