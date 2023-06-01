@@ -9,10 +9,6 @@ namespace SimpleWpfDemo
         [STAThread]
         public static void Main(string[] args)
         {
-            /*
-             * kort eksempel på arv
-             */
-
             var app = new Application();
             var window = new Window();
 
@@ -36,6 +32,9 @@ namespace SimpleWpfDemo
             panel.Children.Add(clicker1.Panel);
             panel.Children.Add(clicker2.Panel);
             panel.Children.Add(clicker3.Panel);
+
+            var ticTacToePanel = new TicTacToePanel();
+            panel.Children.Add(ticTacToePanel);
 
             window.Content = panel;
             app.Run(window);
